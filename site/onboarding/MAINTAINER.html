@@ -1,0 +1,34 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Onboarding for the developer and Claude maintaining this atlas · Repository atlas</title><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../index.html">Start here</a><a href="../projects.html">Explore 20 projects</a><a href="../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../index.html">Start</a><span>/</span><a href="../projects.html">Explore projects</a><span>/</span><span>Onboarding</span></div><a href="../projects.html">← Explore all projects</a></div><main id="main" class="document"><h1>Onboarding for the developer and Claude maintaining this atlas</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#repository-layout">Repository layout</a></li><li><a href="#make-a-change">Make a change</a></li><li><a href="#how-claude-should-react">How Claude should react</a></li><li><a href="#publication">Publication</a></li></ol></details>
+<p>Read REQUEST.md, PROGRESS.md, METHODOLOGY.md and inventory.json first. The user asked that this work survive sessions; do not ask them to repeat the scope. Twenty source locations are represented by stable IDs. Their private absolute paths are stored only in the ignored .research/manifest.json on the original machine.</p>
+<h2 id="repository-layout">Repository layout</h2>
+<ul>
+<li>scripts/catalog.py: curated findings, user jobs, onboarding, evidence and prioritization for all projects.</li>
+<li>scripts/build.py: deterministic Markdown and static HTML generator.</li>
+<li>reports/<id>/REPORT.md: product/implementation review.</li>
+<li>reports/<id>/ONBOARDING.md: setup, UI journey, Claude behavior and acceptance checks.</li>
+<li>reports/<id>/EVIDENCE.md: source references, hashes and limits.</li>
+<li>portfolio/SYNTHESIS.md: overlap, proposed integrations, quick wins and high-stakes bets.</li>
+<li>onboarding/CAIRN.md: detailed five-layer walkthrough and savings interpretation.</li>
+<li>site/: generated deployable website, including report pages and copied assets.</li>
+<li>assets/: sanitized screenshots and fonts, with provenance in ASSETS.md.</li>
+<li>VALIDATION.md: commands actually run and their limitations.</li>
+</ul>
+<h2 id="make-a-change">Make a change</h2>
+<p>Inspect the relevant source first, preferably through codebase-memory graph tools. Compare its current commit/worktree to the inventory. Read its local AGENTS.md before running or changing anything. Source repositories are not submodules and the atlas does not own their working-tree changes.</p>
+<p>Update the catalog’s claim, evidence and limitation together. Keep an implementation fact separate from a user-demand hypothesis. Edit the Markdown guides for cross-project narrative. Run <code>python3 scripts/build.py</code>, then <code>python3 scripts/validate.py</code>. The generator requires markdown-it-py; requirements.txt pins the build dependency. The generated site itself needs no Python or JavaScript package installation.</p>
+<p>Preview with <code>python3 -m http.server 8768 --bind 127.0.0.1</code> from this repository and open <code>/site/</code>. Inspect at desktop and narrow width. Search for a project, filter its category, compare two projects, open a report, switch persona guidance, follow onboarding and try the savings calculator. Expected outcomes are visible text changes, working links and labeled hypothetical arithmetic—not a silent button click.</p>
+<h2 id="how-claude-should-react">How Claude should react</h2>
+<ul>
+<li>“What is X?” → open its REPORT.md and cite evidence plus validation limits.</li>
+<li>“Is it working?” → inspect VALIDATION.md; distinguish code existence, local tests and live deployment.</li>
+<li>“What should we build?” → consult SYNTHESIS.md and the buyer’s job; state the experiment that could disprove the recommendation.</li>
+<li>“Show savings” → explain the baseline and use actual ledger data or explicitly hypothetical inputs.</li>
+<li>“Merge the brains” → request/derive a canonical schema, tenancy and migration plan before porting; the portfolio diagram is a proposal, not a migration instruction.</li>
+<li>“Continue” → read PROGRESS.md and the latest workorder; resume outstanding steps rather than recreate folders or overwrite source repos.</li>
+<li>“Publish” → validate the curated site and Git diff, exclude raw source/secrets/customer content, then push the documentation repository and verify Pages.</li>
+</ul>
+<p>Never turn screenshots into claims that a current backend worked. Never claim a test passed merely because a test file exists. Never copy source-repository .env files, session logs or internal datasets into the atlas. Preserve upstream ownership and licenses.</p>
+<h2 id="publication">Publication</h2>
+<p>The requested destination is Shashank2577/understanding-the-repos-via-codex. Only this documentation project is published. GitHub Pages serves site/ through an Actions workflow. The source repositories retain their original remotes and visibility. The official publishing mechanism is documented in <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">GitHub Pages configuration</a>.</p>
+<p>Record the deployed URL and commit in PROGRESS.md. When source evidence changes, retain a dated validation entry so another developer can tell what was checked and when.</p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../METHODOLOGY.html">Method &amp; limits</a><a href="../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/onboarding/MAINTAINER.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../assets/app.js" defer></script></body></html>

@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Java AI governance scaffold · Repository atlas</title><link rel="stylesheet" href="../../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../../index.html">Start here</a><a href="../../projects.html">Explore 20 projects</a><a href="../../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../../onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../../index.html">Start</a><span>/</span><a href="../../projects.html">Projects</a><span>/</span><strong>Java AI governance scaffold</strong><span>/</span><span>Report</span></div><nav aria-label="Project guide"><a href="../../reports/ai-java-scaffold/REPORT.html">Report</a><a href="../../reports/ai-java-scaffold/ONBOARDING.html">How to use</a><a href="../../reports/ai-java-scaffold/EVIDENCE.html">Evidence</a><a href="../../projects.html">← All projects</a></nav></div><main id="main" class="document"><h1>Java AI governance scaffold</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#vision-and-the-problem-it-addresses">Vision and the problem it addresses</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#how-well-it-addresses-the-problem">How well it addresses the problem</a></li><li><a href="#what-is-missing-or-unproven">What is missing or unproven</a></li><li><a href="#smallest-useful-next-step">Smallest useful next step</a></li><li><a href="#position-in-the-portfolio">Position in the portfolio</a></li><li><a href="#evidence-and-next-reading">Evidence and next reading</a></li></ol></details>
+<p><strong>Recommendation:</strong> Useful internal standard; enforcement needs to catch up with prose.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Snapshot</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supplied location ID</td>
+<td>ai-java-scaffold</td>
+</tr>
+<tr>
+<td>Product family</td>
+<td>Agent delivery</td>
+</tr>
+<tr>
+<td>Implementation stage</td>
+<td>Instruction pack + example</td>
+</tr>
+<tr>
+<td>Review date</td>
+<td>2026-09-26</td>
+</tr>
+<tr>
+<td>Local state</td>
+<td>clean</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="vision-and-the-problem-it-addresses">Vision and the problem it addresses</h2>
+<p>Make generated Java services follow the organization’s API, testing, observability and architecture conventions through reusable instructions.</p>
+<p><strong>Who needs it:</strong> Java platform teams, staff engineers and developers pairing with Claude or another coding assistant.</p>
+<p><strong>The moment it becomes useful:</strong> Each AI-generated microservice uses different dependencies, error formats and test practices, creating costly review and maintenance drift.</p>
+<h2 id="how-it-works">How it works</h2>
+<p><img src="../../assets/ai-java-scaffold-flow.svg" alt="Conceptual workflow for Java AI governance scaffold" /></p>
+<p>This diagram summarizes the inspected design. It is not evidence of a successful end-to-end deployment. For a hands-on journey, use the <a href="ONBOARDING.html">onboarding guide</a>.</p>
+<h2 id="how-well-it-addresses-the-problem">How well it addresses the problem</h2>
+<ul>
+<li>The repository has domain-specific skills rather than a giant empty application template.</li>
+<li>A runnable-looking greeting example demonstrates controller, strategy, service and ProblemDetail patterns.</li>
+<li>The POM configures JaCoCo line coverage and Spotless, giving a starting point for mechanical checks.</li>
+</ul>
+<p>These are implementation strengths. Repeated use, customer demand and measured business outcomes remain separate questions.</p>
+<h2 id="what-is-missing-or-unproven">What is missing or unproven</h2>
+<ul>
+<li>README guarantees about agent compliance are too strong: Markdown instructions cannot force correct output.</li>
+<li>The inspected example POM lacks Testcontainers, Maven Enforcer, a branch coverage threshold and Failsafe wiring; the example test is named GreetingControllerIT. Verify explicitly that the integration test is discovered.</li>
+<li>A simple greeting example does not demonstrate transactions, multitenant isolation, migrations or messaging reliability.</li>
+<li>The source remote belongs to an organization and README labels it proprietary. This atlas analyzes it; it does not republish the source or skills.</li>
+</ul>
+<h2 id="smallest-useful-next-step">Smallest useful next step</h2>
+<p>Build one reference service whose CI deliberately fails for a forbidden dependency, formatting violation, missed integration test and insufficient branch coverage.</p>
+<p><strong>Acceptance exercise:</strong> Inspect Maven test reports after verify; assert GreetingControllerIT actually ran. Seed one broken architectural dependency and one malformed API response and prove checks catch both. No Maven build was run in this review.</p>
+<p>This is a proposed validation exercise unless explicitly recorded as executed in <a href="../../VALIDATION.html">VALIDATION</a>.</p>
+<h2 id="position-in-the-portfolio">Position in the portfolio</h2>
+<p>Related work: <a href="../archi-foundry/REPORT.html">Architecture Foundry</a>, <a href="../aisdlc/REPORT.html">Foundry / AI SDLC</a>.</p>
+<p>Read the <a href="../../portfolio/SYNTHESIS.html">overlap and integration decisions</a> before merging features. Shared vocabulary does not guarantee shared IDs, permissions, storage or lifecycle semantics.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Reviewer judgment, 1–5</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effort to a credible narrow pilot</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Potential breadth and recurrence of the need</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Integration, operational and consequence exposure</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are ordinal planning judgments, not completion percentages or a commercial valuation. Empty/archive projects should be parked rather than treated as active bets.</p>
+<h2 id="evidence-and-next-reading">Evidence and next reading</h2>
+<p><a href="EVIDENCE.html">Source references and snapshot limits</a> · <a href="ONBOARDING.html">Developer / Claude onboarding</a> · <a href="../../portfolio/SYNTHESIS.html">Portfolio synthesis</a></p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../../METHODOLOGY.html">Method &amp; limits</a><a href="../../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/reports/ai-java-scaffold/REPORT.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../../assets/app.js" defer></script></body></html>

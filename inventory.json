@@ -1,0 +1,142 @@
+[
+  {
+    "id": "sovix-ai",
+    "commit": "51412c92f74047d506332066122dd241c8c78d4e",
+    "remote": "https://github.com/Shashank2577/prompture.git",
+    "working_tree": "local changes present",
+    "tracked_files": 1715
+  },
+  {
+    "id": "aisdlc",
+    "commit": "4eda168f4e9ff88d35a438b2637cd2f566a24271",
+    "remote": "https://github.com/Shashank2577/ai-sdlc.git",
+    "working_tree": "clean",
+    "tracked_files": 235
+  },
+  {
+    "id": "cairn",
+    "commit": "3255c5ae64095c4d2b01c309669fff0794f69496",
+    "remote": "https://github.com/Shashank2577/cairn.git",
+    "working_tree": "clean",
+    "tracked_files": 1043
+  },
+  {
+    "id": "sovix-cli",
+    "commit": "9933cb9af5f2d11d70c7a6cb39a30a0bef968b6d",
+    "remote": "https://github.com/Shashank2577/sovix-cli.git",
+    "working_tree": "clean",
+    "tracked_files": 95
+  },
+  {
+    "id": "spreix-company-brain",
+    "commit": null,
+    "remote": null,
+    "working_tree": "not a git checkout",
+    "tracked_files": 0
+  },
+  {
+    "id": "cortex",
+    "commit": "3410210ec0019d9e3aa0ddf30f35dd45b5e7d749",
+    "remote": "https://github.com/Shashank2577/cortex.git",
+    "working_tree": "clean",
+    "tracked_files": 341
+  },
+  {
+    "id": "ragpipeline",
+    "commit": "9ea2ec9fb6da1b3807acb156e38f77b8e0455ea9",
+    "remote": "https://github.com/Shashank2577/lumen.git",
+    "working_tree": "local changes present",
+    "tracked_files": 264
+  },
+  {
+    "id": "ai-java-scaffold",
+    "commit": "eed1a26c11ef4750d43b1555e3d568e2b07808e4",
+    "remote": null,
+    "working_tree": "clean",
+    "tracked_files": 68
+  },
+  {
+    "id": "spreix-brain",
+    "commit": "07f9f4e04b3f2ec5be6dec14541abfb7d494321f",
+    "remote": "https://github.com/Shashank2577/spreix-brain.git",
+    "working_tree": "local changes present",
+    "tracked_files": 85
+  },
+  {
+    "id": "aicommit-",
+    "commit": "7567290b7671869c8929c675d33f1831fae79e30",
+    "remote": "https://github.com/pandey019/aicommit-.git",
+    "working_tree": "local changes present",
+    "tracked_files": 312
+  },
+  {
+    "id": "kb",
+    "commit": "216d416e185ab3dde6c6ab7f1c854365dafa6af0",
+    "remote": "https://github.com/Shashank2577/kb.git",
+    "working_tree": "local changes present",
+    "tracked_files": 50
+  },
+  {
+    "id": "scratch",
+    "commit": "b7f76e866f766701e199160ee5ea913c18aad7f4",
+    "remote": "https://github.com/erictli/scratch",
+    "working_tree": "local changes present",
+    "tracked_files": 110
+  },
+  {
+    "id": "archi-foundry",
+    "commit": null,
+    "remote": null,
+    "working_tree": "not a git checkout",
+    "tracked_files": 38
+  },
+  {
+    "id": "foundry-stage0",
+    "commit": null,
+    "remote": null,
+    "working_tree": "not a git checkout",
+    "tracked_files": 12
+  },
+  {
+    "id": "github-2",
+    "commit": "7ef037ebcff6867fb2e7981adcf65cb579cdbde2",
+    "remote": "https://github.com/Shashank2577/receipts.git",
+    "working_tree": "local changes present",
+    "tracked_files": 98
+  },
+  {
+    "id": "spreix-notetaker",
+    "commit": "f5800b9af284abca9cd891afaa454f96efc080d2",
+    "remote": "https://github.com/Shashank2577/spreix-notetaker.git",
+    "working_tree": "local changes present",
+    "tracked_files": 1425
+  },
+  {
+    "id": "OBSERVE",
+    "commit": "71beb4ebb9d6f92719a6800a30645a64e3484aec",
+    "remote": "https://github.com/Shashank2577/OBSERVE.git",
+    "working_tree": "local changes present",
+    "tracked_files": 1268
+  },
+  {
+    "id": "free",
+    "commit": "2a4a4e3f8780daab84a5314f24763c5356a528c4",
+    "remote": "https://github.com/tashfeenahmed/freellmapi.git",
+    "working_tree": "clean",
+    "tracked_files": 157
+  },
+  {
+    "id": "spreix-platform",
+    "commit": "6f09660015f7b0bc9f0ab7901eaff536900cb7c6",
+    "remote": "https://github.com/Shashank2577/spreix-platform.git",
+    "working_tree": "clean",
+    "tracked_files": 957
+  },
+  {
+    "id": "researcher",
+    "commit": "857d45b0bc3f90fb50b5ccc65d960d5753dfeb14",
+    "remote": "",
+    "working_tree": "local changes present",
+    "tracked_files": 44
+  }
+]

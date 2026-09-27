@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>FreeLLMAPI · Repository atlas</title><link rel="stylesheet" href="../../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../../index.html">Start here</a><a href="../../projects.html">Explore 20 projects</a><a href="../../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../../onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../../index.html">Start</a><span>/</span><a href="../../projects.html">Projects</a><span>/</span><strong>FreeLLMAPI</strong><span>/</span><span>Report</span></div><nav aria-label="Project guide"><a href="../../reports/free/REPORT.html">Report</a><a href="../../reports/free/ONBOARDING.html">How to use</a><a href="../../reports/free/EVIDENCE.html">Evidence</a><a href="../../projects.html">← All projects</a></nav></div><main id="main" class="document"><h1>FreeLLMAPI</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#vision-and-the-problem-it-addresses">Vision and the problem it addresses</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#how-well-it-addresses-the-problem">How well it addresses the problem</a></li><li><a href="#what-is-missing-or-unproven">What is missing or unproven</a></li><li><a href="#smallest-useful-next-step">Smallest useful next step</a></li><li><a href="#position-in-the-portfolio">Position in the portfolio</a></li><li><a href="#evidence-and-next-reading">Evidence and next reading</a></li></ol></details>
+<p><strong>Recommendation:</strong> Useful shared utility; reliability beats a “free forever” promise.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Snapshot</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supplied location ID</td>
+<td>free</td>
+</tr>
+<tr>
+<td>Product family</td>
+<td>Knowledge infrastructure</td>
+</tr>
+<tr>
+<td>Implementation stage</td>
+<td>Gateway + admin implementation</td>
+</tr>
+<tr>
+<td>Review date</td>
+<td>2026-09-26</td>
+</tr>
+<tr>
+<td>Local state</td>
+<td>clean</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="vision-and-the-problem-it-addresses">Vision and the problem it addresses</h2>
+<p>Present multiple model providers behind one compatible endpoint, with health-aware routing, quotas, fallback and inspectable usage.</p>
+<p><strong>Who needs it:</strong> Developers experimenting with many providers; small deployments needing a consistent endpoint and basic cost control.</p>
+<p><strong>The moment it becomes useful:</strong> A prototype stops on provider limits or every app needs custom provider keys and fallback code.</p>
+<h2 id="how-it-works">How it works</h2>
+<p><img src="../../assets/free-flow.svg" alt="Conceptual workflow for FreeLLMAPI" /></p>
+<p>This diagram summarizes the inspected design. It is not evidence of a successful end-to-end deployment. For a hands-on journey, use the <a href="ONBOARDING.html">onboarding guide</a>.</p>
+<h2 id="how-well-it-addresses-the-problem">How well it addresses the problem</h2>
+<ul>
+<li>routeRequest filters for vision/tools, consumer allowlists, context window and per-provider/key limits before selection.</li>
+<li>Bad key decryption is marked as an error and skipped; sticky routing and custom endpoints are explicit.</li>
+<li>Current source includes embeddings service, consumer controls and tests beyond the README’s original scope.</li>
+</ul>
+<p>These are implementation strengths. Repeated use, customer demand and measured business outcomes remain separate questions.</p>
+<h2 id="what-is-missing-or-unproven">What is missing or unproven</h2>
+<ul>
+<li>README says embeddings are unsupported while routes/UI/tests implement them. That contradiction can cause bad integration decisions.</li>
+<li>Provider free-tier availability and limits change; the gateway does not eliminate provider policy, latency or quality differences.</li>
+<li>Embedding fallback must preserve vector-space compatibility, not merely equal dimensions. Pin an embedding family for each collection.</li>
+<li>A gateway concentrates credentials and failures. At-rest encryption requires key backup/rotation and secret-safe logs; SQLite/process counters need deployment-scale evaluation.</li>
+</ul>
+<h2 id="smallest-useful-next-step">Smallest useful next step</h2>
+<p>Publish a tested compatibility matrix for chat, tools, Responses, vision and embeddings. Give each app a scoped consumer and pin embeddings rather than routing them like interchangeable chat models.</p>
+<p><strong>Acceptance exercise:</strong> Use mocked providers to force 429, timeout, invalid key, tool mismatch and oversized context. Verify clean exhaustion errors and no credentials in responses/logs. Run live provider checks separately with a budget.</p>
+<p>This is a proposed validation exercise unless explicitly recorded as executed in <a href="../../VALIDATION.html">VALIDATION</a>.</p>
+<h2 id="position-in-the-portfolio">Position in the portfolio</h2>
+<p>Related work: <a href="../ragpipeline/REPORT.html">Lumen</a>, <a href="../cairn/REPORT.html">Cairn</a>, <a href="../spreix-platform/REPORT.html">Spreix Platform</a>, <a href="../OBSERVE/REPORT.html">OBSERVE</a>.</p>
+<p>Read the <a href="../../portfolio/SYNTHESIS.html">overlap and integration decisions</a> before merging features. Shared vocabulary does not guarantee shared IDs, permissions, storage or lifecycle semantics.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Reviewer judgment, 1–5</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effort to a credible narrow pilot</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Potential breadth and recurrence of the need</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Integration, operational and consequence exposure</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are ordinal planning judgments, not completion percentages or a commercial valuation. Empty/archive projects should be parked rather than treated as active bets.</p>
+<h2 id="evidence-and-next-reading">Evidence and next reading</h2>
+<p><a href="EVIDENCE.html">Source references and snapshot limits</a> · <a href="ONBOARDING.html">Developer / Claude onboarding</a> · <a href="../../portfolio/SYNTHESIS.html">Portfolio synthesis</a></p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../../METHODOLOGY.html">Method &amp; limits</a><a href="../../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/reports/free/REPORT.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../../assets/app.js" defer></script></body></html>

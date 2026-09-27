@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Method, scope and evidence · Repository atlas</title><link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="index.html">Start here</a><a href="projects.html">Explore 20 projects</a><a href="portfolio/SYNTHESIS.html">Portfolio direction</a><a href="onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><main id="main" class="document"><h1>Method, scope and evidence</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#what-was-inspected">What was inspected</a></li><li><a href="#evidence-labels">Evidence labels</a></li><li><a href="#ranking-rubric">Ranking rubric</a></li><li><a href="#maintaining-the-analysis">Maintaining the analysis</a></li></ol></details>
+<p>Review date: 2026-09-26. All twenty supplied locations were inventoried. Nested roots were resolved; one directory is empty and two locations are unpacked non-git bundles. Git HEADs, remote ownership and working-tree state are recorded in inventory.json. Reports describe the local snapshot, including pre-existing uncommitted edits. They are not claims about what is currently deployed.</p>
+<h2 id="what-was-inspected">What was inspected</h2>
+<ol>
+<li>Project README, manifests, available onboarding and agent instructions.</li>
+<li>Codebase-memory graph discovery, with fast indexing for missing projects. Existing graph results were checked through concrete snippets; indexes can omit docs, examples, scripts and generated files.</li>
+<li>Representative implementation paths: matching, ingestion, agent run, model routing, metric queries, session accounting, source extraction and bootstrap policy.</li>
+<li>Targeted local tests for Sovix CLI, Receipts, Cairn and Spreix Brain.</li>
+<li>Live read-only Cairn UI and its source CSS. Other included product screenshots are explicitly marked historical repository assets. No production cluster, meeting bot, paid-provider research run or full cross-product deployment was executed.</li>
+<li>Limited primary-source checks for adjacent capabilities and GitHub Pages publication.</li>
+</ol>
+<p>This is an implementation-grounded product and architecture review with deep selected paths, not a line-by-line audit of every repository, security certification or exhaustive QA run. Each report lists the gap between demonstrated code and outcomes still needing validation. Test-file presence alone is not recorded as a passing test.</p>
+<h2 id="evidence-labels">Evidence labels</h2>
+<ul>
+<li><strong>Code inspected:</strong> a concrete file/function or config was read. This demonstrates implementation intent/behavior at that point, not end-to-end success.</li>
+<li><strong>Live UI:</strong> rendered state observed during this review. Data may have been produced before the review; the caption states that limit.</li>
+<li><strong>Test run:</strong> a command executed in this session, with result and environment limitations in VALIDATION.md.</li>
+<li><strong>Historical asset / documentation claim:</strong> existing screenshot/report/README, not regenerated evidence.</li>
+<li><strong>Recommendation / hypothesis:</strong> reasoned advice that still needs product or technical validation.</li>
+</ul>
+<p>Source references include paths and line starts. Where a git remote exists, links use the recorded commit. A dirty file or untracked addition can differ from that commit; the local path and current file hash in EVIDENCE.md are authoritative for this snapshot. Private repository links require the reader’s access. No source code, provider secrets, session databases or private customer datasets are bundled into this documentation repository.</p>
+<h2 id="ranking-rubric">Ranking rubric</h2>
+<p>Effort, upside and risk use 1–5 ordinal judgments with explicit definitions in portfolio/SYNTHESIS.md. Empty/archive entries are parked rather than ranked as implemented products. No arithmetic score implies commercial validation. Proposed integrations are labeled proposals; overlap does not establish existing API wiring or code lineage.</p>
+<h2 id="maintaining-the-analysis">Maintaining the analysis</h2>
+<p>Update a report when its recorded commit or relevant working tree changes. Re-run only checks affected by the new evidence. Record command, date, dataset, observed result and what was not exercised. Keep historical findings dated instead of silently replacing the evidence with a claim. REQUEST.md, PROGRESS.md and onboarding/MAINTAINER.md preserve the original scope and continuation procedure.</p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="METHODOLOGY.html">Method &amp; limits</a><a href="VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/METHODOLOGY.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="assets/app.js" defer></script></body></html>

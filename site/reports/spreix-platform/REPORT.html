@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Spreix Platform · Repository atlas</title><link rel="stylesheet" href="../../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../../index.html">Start here</a><a href="../../projects.html">Explore 20 projects</a><a href="../../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../../onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../../index.html">Start</a><span>/</span><a href="../../projects.html">Projects</a><span>/</span><strong>Spreix Platform</strong><span>/</span><span>Report</span></div><nav aria-label="Project guide"><a href="../../reports/spreix-platform/REPORT.html">Report</a><a href="../../reports/spreix-platform/ONBOARDING.html">How to use</a><a href="../../reports/spreix-platform/EVIDENCE.html">Evidence</a><a href="../../projects.html">← All projects</a></nav></div><main id="main" class="document"><h1>Spreix Platform</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#vision-and-the-problem-it-addresses">Vision and the problem it addresses</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#how-well-it-addresses-the-problem">How well it addresses the problem</a></li><li><a href="#what-is-missing-or-unproven">What is missing or unproven</a></li><li><a href="#smallest-useful-next-step">Smallest useful next step</a></li><li><a href="#position-in-the-portfolio">Position in the portfolio</a></li><li><a href="#evidence-and-next-reading">Evidence and next reading</a></li></ol></details>
+<p><strong>Recommendation:</strong> Largest team-product upside and largest scope risk.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Snapshot</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supplied location ID</td>
+<td>spreix-platform</td>
+</tr>
+<tr>
+<td>Product family</td>
+<td>Team knowledge</td>
+</tr>
+<tr>
+<td>Implementation stage</td>
+<td>Consolidated implementation; deployment unverified</td>
+</tr>
+<tr>
+<td>Review date</td>
+<td>2026-09-26</td>
+</tr>
+<tr>
+<td>Local state</td>
+<td>clean</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="vision-and-the-problem-it-addresses">Vision and the problem it addresses</h2>
+<p>Unify capture, compiled team memory and useful actions into a multi-tenant work system: meetings and documents become cited knowledge, decisions and controlled agent runs.</p>
+<p><strong>Who needs it:</strong> Teams that repeatedly need shared context across meetings, projects and tools; admins managing scoped knowledge and actions.</p>
+<p><strong>The moment it becomes useful:</strong> Notetakers, wikis and automations are separate. Teams lose provenance when information moves between them, and repeatedly rebuild context before acting.</p>
+<h2 id="how-it-works">How it works</h2>
+<p><img src="../../assets/spreix-platform-flow.svg" alt="Conceptual workflow for Spreix Platform" /></p>
+<p>This diagram summarizes the inspected design. It is not evidence of a successful end-to-end deployment. For a hands-on journey, use the <a href="ONBOARDING.html">onboarding guide</a>.</p>
+<h2 id="how-well-it-addresses-the-problem">How well it addresses the problem</h2>
+<ul>
+<li>The inspected agent worker wires a real runAgent implementation, persistent memory, checkpoints, outputs and realtime events.</li>
+<li>External tool discovery is best-effort and the agent definition still narrows its allowed tool belt.</li>
+<li>The codebase contains extensive router/worker/package tests and explicit org/brain scope concepts. This is not just the design plan described by the opening README.</li>
+</ul>
+<p>These are implementation strengths. Repeated use, customer demand and measured business outcomes remain separate questions.</p>
+<h2 id="what-is-missing-or-unproven">What is missing or unproven</h2>
+<ul>
+<li>README has materially stale architecture: it says design-only and Aurora while later text/AGENTS describes standard Postgres/Neon and source contains implemented workers.</li>
+<li>An external-tool discovery failure silently degrades to core tools after logging; users need to understand which capability was unavailable.</li>
+<li>Ported code does not guarantee feature parity. Auth, provenance, schema and event semantics differ among the source products.</li>
+<li>No fresh cloud deployment or full product acceptance pass was done here. Historical AGENTS deployment gaps may themselves be stale; resolve against the current runbook and real environment.</li>
+</ul>
+<h2 id="smallest-useful-next-step">Smallest useful next step</h2>
+<p>Pick one paid workflow: meeting decision to living project brief to approved task. Establish the canonical knowledge store and cut the launch surface to that loop before adding more channels.</p>
+<p><strong>Acceptance exercise:</strong> Use two fixture organizations, replay a source event, run an agent with one allowed and one forbidden tool, interrupt/resume from a checkpoint, and validate every resulting artifact’s source lineage and tenant scope. Then run the same test against a deployed dev stage.</p>
+<p>This is a proposed validation exercise unless explicitly recorded as executed in <a href="../../VALIDATION.html">VALIDATION</a>.</p>
+<h2 id="position-in-the-portfolio">Position in the portfolio</h2>
+<p>Related work: <a href="../spreix-notetaker/REPORT.html">Spreix Meeting Intelligence</a>, <a href="../cortex/REPORT.html">Cortex / compiled wiki</a>, <a href="../spreix-brain/REPORT.html">Spreix Brain</a>, <a href="../spreix-company-brain/REPORT.html">Spreix Company Brain</a>, <a href="../ragpipeline/REPORT.html">Lumen</a>.</p>
+<p>Read the <a href="../../portfolio/SYNTHESIS.html">overlap and integration decisions</a> before merging features. Shared vocabulary does not guarantee shared IDs, permissions, storage or lifecycle semantics.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Reviewer judgment, 1–5</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effort to a credible narrow pilot</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Potential breadth and recurrence of the need</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Integration, operational and consequence exposure</td>
+<td>5</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are ordinal planning judgments, not completion percentages or a commercial valuation. Empty/archive projects should be parked rather than treated as active bets.</p>
+<h2 id="evidence-and-next-reading">Evidence and next reading</h2>
+<p><a href="EVIDENCE.html">Source references and snapshot limits</a> · <a href="ONBOARDING.html">Developer / Claude onboarding</a> · <a href="../../portfolio/SYNTHESIS.html">Portfolio synthesis</a></p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../../METHODOLOGY.html">Method &amp; limits</a><a href="../../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/reports/spreix-platform/REPORT.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../../assets/app.js" defer></script></body></html>

@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Sovix CLI · Repository atlas</title><link rel="stylesheet" href="../../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../../index.html">Start here</a><a href="../../projects.html">Explore 20 projects</a><a href="../../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../../onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../../index.html">Start</a><span>/</span><a href="../../projects.html">Projects</a><span>/</span><strong>Sovix CLI</strong><span>/</span><span>Report</span></div><nav aria-label="Project guide"><a href="../../reports/sovix-cli/REPORT.html">Report</a><a href="../../reports/sovix-cli/ONBOARDING.html">How to use</a><a href="../../reports/sovix-cli/EVIDENCE.html">Evidence</a><a href="../../projects.html">← All projects</a></nav></div><main id="main" class="document"><h1>Sovix CLI</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#vision-and-the-problem-it-addresses">Vision and the problem it addresses</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#how-well-it-addresses-the-problem">How well it addresses the problem</a></li><li><a href="#what-is-missing-or-unproven">What is missing or unproven</a></li><li><a href="#smallest-useful-next-step">Smallest useful next step</a></li><li><a href="#position-in-the-portfolio">Position in the portfolio</a></li><li><a href="#evidence-and-next-reading">Evidence and next reading</a></li></ol></details>
+<p><strong>Recommendation:</strong> Quickest clear distribution wedge.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Snapshot</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supplied location ID</td>
+<td>sovix-cli</td>
+</tr>
+<tr>
+<td>Product family</td>
+<td>Engineering evidence</td>
+</tr>
+<tr>
+<td>Implementation stage</td>
+<td>Focused tested CLI</td>
+</tr>
+<tr>
+<td>Review date</td>
+<td>2026-09-26</td>
+</tr>
+<tr>
+<td>Local state</td>
+<td>clean</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="vision-and-the-problem-it-addresses">Vision and the problem it addresses</h2>
+<p>Give an honest lower bound for agent-signed repository activity with deterministic, inspectable metrics and no model dependency.</p>
+<p><strong>Who needs it:</strong> Engineering leads doing an initial AI-adoption audit; developers wanting a local report; consultants comparing fixed time windows.</p>
+<p><strong>The moment it becomes useful:</strong> A team wants evidence before installing invasive capture agents or giving a service tokens. A local git repository is already available.</p>
+<h2 id="how-it-works">How it works</h2>
+<p><img src="../../assets/sovix-cli-flow.svg" alt="Conceptual workflow for Sovix CLI" /></p>
+<p>This diagram summarizes the inspected design. It is not evidence of a successful end-to-end deployment. For a hands-on journey, use the <a href="ONBOARDING.html">onboarding guide</a>.</p>
+<h2 id="how-well-it-addresses-the-problem">How well it addresses the problem</h2>
+<ul>
+<li>scanLocal validates a git repository and reads its log without a checkout mutation.</li>
+<li>153 tests passed in this review, covering arithmetic, privacy, signatures, CLI export and reproducibility.</li>
+<li>Measured/proxy/inferred tiers and caveats are first-class output. Aggregate-only people data is a deliberate product boundary.</li>
+</ul>
+<p>These are implementation strengths. Repeated use, customer demand and measured business outcomes remain separate questions.</p>
+<h2 id="what-is-missing-or-unproven">What is missing or unproven</h2>
+<ul>
+<li>Unsigned AI-assisted work is invisible. A low number can mean low capture coverage, not low adoption.</li>
+<li>Commits, lines and timing are not business productivity or quality. Comparisons need the same window, repository rules and sample exclusions.</li>
+<li>README explicitly says pre-1.0 and not on npm; a copy-paste npx command is not a verified distribution path here.</li>
+<li>It overlaps strongly with Receipts; two separate metric definitions would drift.</li>
+</ul>
+<h2 id="smallest-useful-next-step">Smallest useful next step</h2>
+<p>Use the checked-out CLI for a clean example report, verify deterministic output twice and document installation honestly. Keep it as a small front door to the broader evidence product.</p>
+<p><strong>Acceptance exercise:</strong> Run npm test. Then node bin/sovix.js scan <fixture-repo> --json and export with the same fixed since date twice. Introduce known signed/unsigned/merge/bot commits and verify denominators and privacy.</p>
+<p>This is a proposed validation exercise unless explicitly recorded as executed in <a href="../../VALIDATION.html">VALIDATION</a>.</p>
+<h2 id="position-in-the-portfolio">Position in the portfolio</h2>
+<p>Related work: <a href="../github-2/REPORT.html">Receipts</a>, <a href="../sovix-ai/REPORT.html">Prompture</a>, <a href="../aicommit-/REPORT.html">Qmmit</a>.</p>
+<p>Read the <a href="../../portfolio/SYNTHESIS.html">overlap and integration decisions</a> before merging features. Shared vocabulary does not guarantee shared IDs, permissions, storage or lifecycle semantics.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Reviewer judgment, 1–5</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effort to a credible narrow pilot</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Potential breadth and recurrence of the need</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Integration, operational and consequence exposure</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are ordinal planning judgments, not completion percentages or a commercial valuation. Empty/archive projects should be parked rather than treated as active bets.</p>
+<h2 id="evidence-and-next-reading">Evidence and next reading</h2>
+<p><a href="EVIDENCE.html">Source references and snapshot limits</a> · <a href="ONBOARDING.html">Developer / Claude onboarding</a> · <a href="../../portfolio/SYNTHESIS.html">Portfolio synthesis</a></p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../../METHODOLOGY.html">Method &amp; limits</a><a href="../../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/reports/sovix-cli/REPORT.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../../assets/app.js" defer></script></body></html>

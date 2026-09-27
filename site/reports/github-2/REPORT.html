@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Receipts · Repository atlas</title><link rel="stylesheet" href="../../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../../index.html">Start here</a><a href="../../projects.html">Explore 20 projects</a><a href="../../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../../onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../../index.html">Start</a><span>/</span><a href="../../projects.html">Projects</a><span>/</span><strong>Receipts</strong><span>/</span><span>Report</span></div><nav aria-label="Project guide"><a href="../../reports/github-2/REPORT.html">Report</a><a href="../../reports/github-2/ONBOARDING.html">How to use</a><a href="../../reports/github-2/EVIDENCE.html">Evidence</a><a href="../../projects.html">← All projects</a></nav></div><main id="main" class="document"><h1>Receipts</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#vision-and-the-problem-it-addresses">Vision and the problem it addresses</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#how-well-it-addresses-the-problem">How well it addresses the problem</a></li><li><a href="#what-is-missing-or-unproven">What is missing or unproven</a></li><li><a href="#smallest-useful-next-step">Smallest useful next step</a></li><li><a href="#position-in-the-portfolio">Position in the portfolio</a></li><li><a href="#evidence-and-next-reading">Evidence and next reading</a></li></ol></details>
+<p><strong>Recommendation:</strong> Best near-term evidence product; share methodology with Sovix CLI.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Snapshot</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supplied location ID</td>
+<td>github-2</td>
+</tr>
+<tr>
+<td>Product family</td>
+<td>Engineering evidence</td>
+</tr>
+<tr>
+<td>Implementation stage</td>
+<td>Beta CLI + portable dashboard</td>
+</tr>
+<tr>
+<td>Review date</td>
+<td>2026-09-26</td>
+</tr>
+<tr>
+<td>Local state</td>
+<td>local changes present</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="vision-and-the-problem-it-addresses">Vision and the problem it addresses</h2>
+<p>Give engineering leaders metrics that can be inspected all the way down to arithmetic, coverage and underlying records, without a model generating the numbers.</p>
+<p><strong>Who needs it:</strong> Engineering managers, CTOs, consultants and teams preparing evidence-based delivery reviews.</p>
+<p><strong>The moment it becomes useful:</strong> A dashboard gives a churn or AI-adoption number but nobody can reproduce its denominator, exclusions or source records.</p>
+<h2 id="how-it-works">How it works</h2>
+<p><img src="../../assets/github-2-flow.svg" alt="Conceptual workflow for Receipts" /></p>
+<p>This diagram summarizes the inspected design. It is not evidence of a successful end-to-end deployment. For a hands-on journey, use the <a href="ONBOARDING.html">onboarding guide</a>.</p>
+<h2 id="how-well-it-addresses-the-problem">How well it addresses the problem</h2>
+<ul>
+<li>The full local pytest invocation completed successfully in this review.</li>
+<li>The pipeline, metric definitions, evidence contract and no-AI dependency tests support its central promise.</li>
+<li>A self-contained dashboard and local demo lower the barrier to evaluating a leadership product.</li>
+<li>The supplied working tree includes specification-analysis changes; the report identifies this local snapshot rather than assuming they are published.</li>
+</ul>
+<p>These are implementation strengths. Repeated use, customer demand and measured business outcomes remain separate questions.</p>
+<h2 id="what-is-missing-or-unproven">What is missing or unproven</h2>
+<ul>
+<li>Git-derived delivery and AI signals remain proxies. Deployment frequency and change failure metrics need genuine deployment/incident data to mean DORA outcomes.</li>
+<li>Individual or key-person analysis has different privacy implications from Sovix CLI’s aggregate-only contract; do not merge outputs blindly.</li>
+<li>Large organizations need scoped outputs and incremental collection to avoid giant browser artifacts.</li>
+<li>README/package metadata still contains OWNER placeholders. Distribution and current hosted availability were not verified.</li>
+</ul>
+<h2 id="smallest-useful-next-step">Smallest useful next step</h2>
+<p>Sell or pilot a weekly evidence review for a small engineering team. The first deliverable should answer one disputed question with raw evidence and a stable window, not produce more charts.</p>
+<p><strong>Acceptance exercise:</strong> Run receipts demo locally, click one metric, recompute its formula from the cited fixture records, export CSV and rerender saved JSON. Verify incomplete host API coverage is visible and no model calls occur.</p>
+<p>This is a proposed validation exercise unless explicitly recorded as executed in <a href="../../VALIDATION.html">VALIDATION</a>.</p>
+<h2 id="position-in-the-portfolio">Position in the portfolio</h2>
+<p>Related work: <a href="../sovix-cli/REPORT.html">Sovix CLI</a>, <a href="../sovix-ai/REPORT.html">Prompture</a>, <a href="../aicommit-/REPORT.html">Qmmit</a>, <a href="../aisdlc/REPORT.html">Foundry / AI SDLC</a>.</p>
+<p>Read the <a href="../../portfolio/SYNTHESIS.html">overlap and integration decisions</a> before merging features. Shared vocabulary does not guarantee shared IDs, permissions, storage or lifecycle semantics.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Reviewer judgment, 1–5</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effort to a credible narrow pilot</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Potential breadth and recurrence of the need</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Integration, operational and consequence exposure</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are ordinal planning judgments, not completion percentages or a commercial valuation. Empty/archive projects should be parked rather than treated as active bets.</p>
+<h2 id="evidence-and-next-reading">Evidence and next reading</h2>
+<p><a href="EVIDENCE.html">Source references and snapshot limits</a> · <a href="ONBOARDING.html">Developer / Claude onboarding</a> · <a href="../../portfolio/SYNTHESIS.html">Portfolio synthesis</a></p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../../METHODOLOGY.html">Method &amp; limits</a><a href="../../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/reports/github-2/REPORT.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../../assets/app.js" defer></script></body></html>

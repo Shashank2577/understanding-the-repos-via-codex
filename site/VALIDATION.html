@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Validation record · Repository atlas</title><link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="index.html">Start here</a><a href="projects.html">Explore 20 projects</a><a href="portfolio/SYNTHESIS.html">Portfolio direction</a><a href="onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><main id="main" class="document"><h1>Validation record</h1>
+<p>Date: 2026-09-26. No source fixes were made as part of this review.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Command / observation</th>
+<th>Result</th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sovix CLI</td>
+<td>npm test</td>
+<td>153 passed, 0 failed</td>
+<td>Local suite; not npm publication or real customer data</td>
+</tr>
+<tr>
+<td>Receipts</td>
+<td>.venv/bin/python -m pytest -q</td>
+<td>Full command exited 0</td>
+<td>Local fixtures; host API availability and commercial adoption untested</td>
+</tr>
+<tr>
+<td>Cairn</td>
+<td>.venv/bin/python -m pytest -q tests/test_core.py tests/test_surfaces.py tests/test_agent_memory.py</td>
+<td>Two socket-binding failures in sandbox; other selected tests passed</td>
+<td>Environment prevented local port binding</td>
+</tr>
+<tr>
+<td>Cairn</td>
+<td>Same runner, test_surfaces.py -k 'foreground_server or stopped_server', outside sandbox</td>
+<td>Both previously blocked tests passed</td>
+<td>Selected coverage, not entire Cairn suite</td>
+</tr>
+<tr>
+<td>Spreix Brain</td>
+<td>pnpm test</td>
+<td>Package-manager preflight aborted because dependency refresh required TTY</td>
+<td>Existing modules were not intentionally purged/reinstalled</td>
+</tr>
+<tr>
+<td>Spreix Brain</td>
+<td>node node_modules/vitest/vitest.mjs run</td>
+<td>47 passed, 5 failed; one suite teardown also failed</td>
+<td>Database-dependent tests could not reach localhost:5433; no claim of application defect established</td>
+</tr>
+<tr>
+<td>Cairn UI</td>
+<td>Read-only Overview, Map and Specs</td>
+<td>Populated views rendered</td>
+<td>No sync, memory mutation, live model request or team deployment exercise</td>
+</tr>
+<tr>
+<td>All other projects</td>
+<td>Graph/source/config inspection</td>
+<td>Reported per project</td>
+<td>No fresh full test suite or runtime validation</td>
+</tr>
+</tbody>
+</table></div>
+<p>Cairn Overview at observation: 391 estimated tokens sent via one MCP query, 144,228 estimated source tokens in 33 files, displayed ratio 369×. These are existing accounting records read from the live UI, not a benchmark created by this review. The map showed 16,144 nodes, 42,969 links and 505 communities; Specs showed 75/75 tasks while also identifying Analyze as the next stage. That is a useful example of why a completed task count does not establish full verification.</p>
+<p>The preferred chrome-devtools-axi wrapper failed due to a pageId API mismatch. The browser fallback was used for read-only visual inspection. A separate app on port 3000 was observed but not attributed to the requested repositories or used as evidence.</p>
+<p>Static-site checks and publication status are appended after generation.</p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="METHODOLOGY.html">Method &amp; limits</a><a href="VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/VALIDATION.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="assets/app.js" defer></script></body></html>

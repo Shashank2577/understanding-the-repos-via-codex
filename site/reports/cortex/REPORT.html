@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Cortex / compiled wiki · Repository atlas</title><link rel="stylesheet" href="../../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../../index.html">Start here</a><a href="../../projects.html">Explore 20 projects</a><a href="../../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../../onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../../index.html">Start</a><span>/</span><a href="../../projects.html">Projects</a><span>/</span><strong>Cortex / compiled wiki</strong><span>/</span><span>Report</span></div><nav aria-label="Project guide"><a href="../../reports/cortex/REPORT.html">Report</a><a href="../../reports/cortex/ONBOARDING.html">How to use</a><a href="../../reports/cortex/EVIDENCE.html">Evidence</a><a href="../../projects.html">← All projects</a></nav></div><main id="main" class="document"><h1>Cortex / compiled wiki</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#vision-and-the-problem-it-addresses">Vision and the problem it addresses</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#how-well-it-addresses-the-problem">How well it addresses the problem</a></li><li><a href="#what-is-missing-or-unproven">What is missing or unproven</a></li><li><a href="#smallest-useful-next-step">Smallest useful next step</a></li><li><a href="#position-in-the-portfolio">Position in the portfolio</a></li><li><a href="#evidence-and-next-reading">Evidence and next reading</a></li></ol></details>
+<p><strong>Recommendation:</strong> Reuse the compiler; avoid a second broad team platform.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Snapshot</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supplied location ID</td>
+<td>cortex</td>
+</tr>
+<tr>
+<td>Product family</td>
+<td>Team knowledge</td>
+</tr>
+<tr>
+<td>Implementation stage</td>
+<td>Implemented personal wiki</td>
+</tr>
+<tr>
+<td>Review date</td>
+<td>2026-09-26</td>
+</tr>
+<tr>
+<td>Local state</td>
+<td>clean</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="vision-and-the-problem-it-addresses">Vision and the problem it addresses</h2>
+<p>Compile sources into maintained concept notes once, then answer from the wiki. This emphasizes durable synthesis rather than retrieving raw document chunks afresh for every question.</p>
+<p><strong>Who needs it:</strong> Research-heavy individuals and small teams curating knowledge from links, repositories and pasted text.</p>
+<p><strong>The moment it becomes useful:</strong> Bookmarks grow while knowledge stays fragmented. Several sources discuss the same concept and need one evolving explanation with provenance.</p>
+<h2 id="how-it-works">How it works</h2>
+<p><img src="../../assets/cortex-flow.svg" alt="Conceptual workflow for Cortex / compiled wiki" /></p>
+<p>This diagram summarizes the inspected design. It is not evidence of a successful end-to-end deployment. For a hands-on journey, use the <a href="ONBOARDING.html">onboarding guide</a>.</p>
+<h2 id="how-well-it-addresses-the-problem">How well it addresses the problem</h2>
+<ul>
+<li>applyIngestPlan wraps note mutations, source attribution, graph rebuilding and operation logging in a database transaction.</li>
+<li>Ingestion and brain packages separate fetching from synthesis, making the compiler a plausible reusable module.</li>
+<li>User-scoped note lookup is visible in the write path. Sources, notes and rules are distinct concepts.</li>
+</ul>
+<p>These are implementation strengths. Repeated use, customer demand and measured business outcomes remain separate questions.</p>
+<h2 id="what-is-missing-or-unproven">What is missing or unproven</h2>
+<ul>
+<li>The inspected cascade loop only calls touchBySlug. It marks related notes updated without actually regenerating their content; the README overstates cascade semantics.</li>
+<li>Compiled notes can propagate an early extraction mistake into future answers. Version history, conflict resolution and source deletion propagation need explicit acceptance tests.</li>
+<li>Personal userId scoping is not automatically compatible with Spreix Platform’s organization/brain permissions.</li>
+<li>Social ingestion depends on browser sessions; durability and supported access need separate validation.</li>
+</ul>
+<h2 id="smallest-useful-next-step">Smallest useful next step</h2>
+<p>Implement and test a real semantic cascade, or rename it to freshness marking. Prove source revision and deletion update every derived claim before exporting the compiler.</p>
+<p><strong>Acceptance exercise:</strong> Ingest two synthetic documents with a deliberate contradiction. Inspect raw sources, merged note, conflict flags, related note body and operation log. Delete/revise one source and verify the remaining answer cites valid evidence.</p>
+<p>This is a proposed validation exercise unless explicitly recorded as executed in <a href="../../VALIDATION.html">VALIDATION</a>.</p>
+<h2 id="position-in-the-portfolio">Position in the portfolio</h2>
+<p>Related work: <a href="../spreix-platform/REPORT.html">Spreix Platform</a>, <a href="../spreix-brain/REPORT.html">Spreix Brain</a>, <a href="../ragpipeline/REPORT.html">Lumen</a>, <a href="../scratch/REPORT.html">Scratch</a>.</p>
+<p>Read the <a href="../../portfolio/SYNTHESIS.html">overlap and integration decisions</a> before merging features. Shared vocabulary does not guarantee shared IDs, permissions, storage or lifecycle semantics.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Reviewer judgment, 1–5</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effort to a credible narrow pilot</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Potential breadth and recurrence of the need</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Integration, operational and consequence exposure</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are ordinal planning judgments, not completion percentages or a commercial valuation. Empty/archive projects should be parked rather than treated as active bets.</p>
+<h2 id="evidence-and-next-reading">Evidence and next reading</h2>
+<p><a href="EVIDENCE.html">Source references and snapshot limits</a> · <a href="ONBOARDING.html">Developer / Claude onboarding</a> · <a href="../../portfolio/SYNTHESIS.html">Portfolio synthesis</a></p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../../METHODOLOGY.html">Method &amp; limits</a><a href="../../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/reports/cortex/REPORT.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../../assets/app.js" defer></script></body></html>

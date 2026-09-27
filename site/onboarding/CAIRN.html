@@ -1,0 +1,193 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Cairn onboarding: developer, Claude and team personas · Repository atlas</title><link rel="stylesheet" href="../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../index.html">Start here</a><a href="../projects.html">Explore 20 projects</a><a href="../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../onboarding/CAIRN.html" aria-current="page">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../index.html">Start</a><span>/</span><a href="../projects.html">Explore projects</a><span>/</span><span>Onboarding</span></div><a href="../projects.html">← Explore all projects</a></div><main id="main" class="document"><h1>Cairn onboarding: developer, Claude and team personas</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#1-start-with-a-bounded-task">1. Start with a bounded task</a></li><li><a href="#2-what-the-developer-does-versus-what-claude-does">2. What the developer does versus what Claude does</a></li><li><a href="#3-map-what-the-code-is">3. Map: what the code is</a></li><li><a href="#4-specs-what-was-intended">4. Specs: what was intended</a></li><li><a href="#5-timeline-what-happened-and-when-it-was-true">5. Timeline: what happened, and when it was true</a></li><li><a href="#6-memory-what-the-team-learned">6. Memory: what the team learned</a></li><li><a href="#7-sessions-what-agents-did">7. Sessions: what agents did</a></li><li><a href="#8-read-the-savings-panel-correctly">8. Read the savings panel correctly</a></li><li><a href="#9-persona-specific-first-week">9. Persona-specific first week</a></li><li><a href="#10-a-sign-off-checklist">10. A sign-off checklist</a></li></ol></details>
+<p>Cairn is the repository in this portfolio that implements five relevant layers and a context-savings UI. The original project already has docs/onboarding.md. This companion guide explains a practical first session, what the screens mean, how to validate them, and where the savings interpretation needs care. The other repositories have their own onboarding files under reports/.</p>
+<h2 id="1-start-with-a-bounded-task">1. Start with a bounded task</h2>
+<p>Imagine a small service that retries payment-provider requests. A new developer must change the retry delay without duplicating payments. The code has an idempotency key, an ADR explaining it, a closed task and a previous reverted fix. Cairn is useful if it brings those pieces into the next coding session before the developer or Claude repeats the mistake.</p>
+<p>The first-time user should use a disposable repository or intentionally register a project they own. Running <code>cairn</code> is setup, not just a viewer: it writes managed agent configuration, installs git hooks, initializes local stores and starts the server. Re-running setup is intended to be idempotent. Review the existing repository’s instructions and setup status before running it.</p>
+<p>For the supplied Cairn checkout, the environment already exists. Start with <code>./.venv/bin/cairn doctor</code>. For a new installation, follow the source README’s <code>uv tool install cairn-brain</code> or <code>pipx install cairn-brain</code>, then run <code>cairn</code> from the target repository. Current registry availability was not checked during this review.</p>
+<p><strong>Success looks like:</strong> the project appears in the selector; a completed sync has a timestamp; doctor shows the map/spec/history/session capabilities and the per-agent hook status; Impact resolves a real file. A green screen alone is insufficient—open one cited file and verify the statement.</p>
+<h2 id="2-what-the-developer-does-versus-what-claude-does">2. What the developer does versus what Claude does</h2>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Moment</th>
+<th>Developer action</th>
+<th>Intended Claude behavior</th>
+<th>Verify</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start work</td>
+<td>Open the right repo/project and state a concrete task</td>
+<td>Read the session-start brief if the configured hook provides it</td>
+<td>Doctor’s Claude row; Sessions preview; visible tool activity</td>
+</tr>
+<tr>
+<td>Before edit</td>
+<td>Name the file or acceptance criterion</td>
+<td>Call cairn_context for the task or cairn_impact for a target</td>
+<td>Pack includes real citations and relevant tests/callers</td>
+</tr>
+<tr>
+<td>Intent is unclear</td>
+<td>Ask why the idempotency key exists</td>
+<td>Call cairn_why instead of inventing a rationale</td>
+<td>ADR, comment, history or memory supports the answer</td>
+</tr>
+<tr>
+<td>Implement</td>
+<td>Review scope and diff</td>
+<td>Read the necessary source, change code, run appropriate checks</td>
+<td>Working tests and actual source still matter after the summary</td>
+</tr>
+<tr>
+<td>Learn a durable rule</td>
+<td>Decide whether it is worth preserving</td>
+<td>Call cairn_remember with a concise convention/decision/gotcha</td>
+<td>Memory shows the right project, provenance and current text</td>
+</tr>
+<tr>
+<td>Resume tomorrow</td>
+<td>Open a new session in the same project</td>
+<td>Receive recent context and search prior sessions when needed</td>
+<td>The new session can find the saved decision without you restating it</td>
+</tr>
+</tbody>
+</table></div>
+<p>MCP registration makes tools available; the instructions block tells Claude when to use them; the session-start hook injects a brief automatically when supported. These are different mechanisms. A hook does not force later tool calls, and instruction text does not guarantee model compliance. If the tool is unavailable, Claude should disclose that and use source evidence rather than pretend it called Cairn.</p>
+<p>Example prompt: “Before changing the retry delay, use Cairn to explain the idempotency constraint and show likely affected tests. Then make the smallest change and validate it.” Expected response: citations to the constraint, a scoped plan, an actual diff and test result. An answer consisting only of a graph summary is incomplete.</p>
+<h2 id="3-map-what-the-code-is">3. Map: what the code is</h2>
+<p><img src="../assets/cairn-map-live.png" alt="Live Cairn map" /></p>
+<p>Captured during this review from the running local Cairn UI. It shows pre-existing indexed data, not a fresh accuracy benchmark.</p>
+<p>Open <strong>Map</strong> from the rail. It starts with Areas: communities of connected code and documents grouped by their dominant folder. Circle size means node count, not importance or quality. The dependency threshold hides weaker connections; a missing line may be filtered out rather than absent from the index.</p>
+<p>Click an area, then a community or member. For the payment example, locate the retry module and inspect its relation to the provider client. Use the path controls when you know both endpoints. Use <strong>Impact</strong> to ask what depends on the symbol before editing it.</p>
+<ul>
+<li><strong>Developer:</strong> learn structure and verify a caller in source.</li>
+<li><strong>Claude:</strong> use a budgeted impact/context pack to select the next files to inspect.</li>
+<li><strong>Tech lead:</strong> look for architectural coupling, then validate it; large communities are not automatically bad design.</li>
+<li><strong>Validation:</strong> one known import/call appears with the correct path. Check EXTRACTED versus INFERRED provenance. Co-change is a clue, not proof of a runtime call.</li>
+<li><strong>Failure mode:</strong> a stale map can confidently describe an old commit. Check sync timestamp and source version before a risky change.</li>
+</ul>
+<h2 id="4-specs-what-was-intended">4. Specs: what was intended</h2>
+<p><img src="../assets/cairn-specs-live.png" alt="Live Cairn specs" /></p>
+<p>Open <strong>Specs</strong>, select a feature, then inspect Overview, Tasks, Documents and Drift. The workflow is constitution → specify → clarify → plan → tasks → analyze → implement. The UI offers the next slash command; it does not make the implementation correct simply because boxes are checked.</p>
+<p>For the payment example, the specification should say “a retry must not create a second payment,” with a task naming the implementation and test. Claude can use <code>cairn_specs</code> and the installed <code>/cairn.*</code> workflow to retrieve or maintain artifacts. The developer should compare the actual diff and test with the acceptance criterion before marking work complete.</p>
+<p><strong>Observed example:</strong> this Cairn project displayed 75/75 tasks and no drift, but Analyze was still shown as the next workflow stage. Treat progress counters as separate signals. Deterministic drift detects certain structural inconsistencies; a semantic bug can remain even when the drift count is zero.</p>
+<p><strong>Validation exercise:</strong> in a throwaway fixture, mark a task done that names a missing file, sync and inspect the finding. Restore the fixture afterward. Do not toggle real project tasks just to see whether a button works.</p>
+<h2 id="5-timeline-what-happened-and-when-it-was-true">5. Timeline: what happened, and when it was true</h2>
+<p>Timeline combines history and optional temporal facts. Open the page, choose an entity or use its time control, and ask whether a statement was valid before or after a known change. A fact’s validity interval is different from the date it was ingested.</p>
+<p>For example: “Retries were disabled until the provider supplied idempotency support; they became safe after the May change.” The developer checks the referenced commit or decision. Claude uses <code>cairn_facts</code> with the relevant date when investigating a regression against an older version.</p>
+<p><strong>Without a model:</strong> git history and deterministic relationships still provide context. Model-generated temporal facts are an additional feature, not the same thing as the raw commit log.</p>
+<p><strong>Validation:</strong> choose one known reversal, compare before/after dates and inspect the source. A fact with no reliable provenance should be labeled uncertain. More timeline facts do not necessarily mean a better timeline.</p>
+<h2 id="6-memory-what-the-team-learned">6. Memory: what the team learned</h2>
+<p>Open <strong>Memory</strong>. Choose a kind such as convention, decision or gotcha, and save one durable statement with scope. A useful example is: “Payment retries must reuse the original idempotency key; a timeout does not mean the provider rejected the payment.” Include a source when possible.</p>
+<p>Cairn may add, merge, update or retire overlapping memories depending on its available reconciliation mechanism. Check the returned outcome and the retained wording. A model can merge incorrectly, so the user needs to be able to inspect history and correct it.</p>
+<p><strong>Claude should store:</strong> decisions with reasons, non-obvious failure modes, conventions that are not already reliably discoverable in code. <strong>Claude should avoid storing:</strong> every file read, transient task status, secrets, guesses or raw customer content.</p>
+<p><strong>Validation:</strong> search the statement with different wording; check project isolation and supersession; use <code>cairn memory check</code> to validate search-record consistency. Use its repair option only after understanding the mismatch. A viewer role should not be able to change team memory.</p>
+<h2 id="7-sessions-what-agents-did">7. Sessions: what agents did</h2>
+<p>Open <strong>Sessions</strong> to inspect captured activity, observations, summaries and the “next session” preview. Capture hooks record events; a worker processes them. Model processing may be optional, queued, failed or deterministic. These are separate states.</p>
+<p>For the payment example, the next session should see that the retry delay was changed, the idempotency key was preserved and the relevant tests passed. It should not receive the entire previous terminal transcript as unquestioned instructions.</p>
+<p><strong>Validation:</strong> start a harmless fixture session, read a file and finish a turn; check its recorded event and processing status. Then open a new session and check the brief. An empty preview can mean no useful captured data, unsupported/unapproved hooks, the wrong project, or a worker problem. Doctor and queue errors help distinguish them.</p>
+<p><strong>Cost control:</strong> <code>[recall] worker_spawn = false</code> queues rather than automatically processing work; <code>[deep] enabled = false</code> disables deep temporal enrichment. Review docs/models-and-cost.md and the model ledger before enabling background model use. The inspected UI’s “local mode” wording should not be interpreted as a guarantee that configured remote model calls keep source data on-device.</p>
+<h2 id="8-read-the-savings-panel-correctly">8. Read the savings panel correctly</h2>
+<p><img src="../assets/cairn-overview-live.png" alt="Live Cairn context comparison" /></p>
+<p>The screenshot is a crop of the actual Overview, captured on 2026-09-26. It shows existing records: <strong>391 estimated tokens sent</strong> versus <strong>144,228 estimated source tokens across 33 files</strong>. The displayed 369× comparison is approximately 144,228 ÷ 391. The difference is 143,837 estimated tokens, and the relative reduction is about 99.73% <strong>against reading all those cited files</strong>.</p>
+<p>That baseline is useful but hypothetical. It does not establish that an agent otherwise would have opened all 33 files, that the answer was sufficient, or that no later source reads occurred. Token estimates use file size divided by four in <code>Cairn.source_cost</code>, not the billing tokenizer for every model/language.</p>
+<p>Keep four measures separate:</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Meaning</th>
+<th>What it does not prove</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Context-pack compression</td>
+<td>Source-file estimate compared with delivered pack estimate</td>
+<td>Actual avoided reads or billed dollars</td>
+</tr>
+<tr>
+<td>Session compression</td>
+<td>Stored raw activity versus observations/summaries</td>
+<td>That the entire raw history would be reread every session</td>
+</tr>
+<tr>
+<td>Added context and enrichment cost</td>
+<td>Briefing tokens, schemas, model processing and storage</td>
+<td>Automatically negative or positive ROI</td>
+</tr>
+<tr>
+<td>Task outcome</td>
+<td>Total actual tokens/cost/time to an accepted solution</td>
+<td>Causality without comparable tasks and quality checks</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>UI scope nuance:</strong> Overview prefers non-brief MCP rows when any exist, otherwise other non-brief rows. Briefings are displayed as added cost with no file baseline. The file count is derived from a limited recent-query list while token totals aggregate more broadly; it is not necessarily a lifetime unique-file count. Repeated queries can include the same source files.</p>
+<p>For a realistic experiment, run matched tasks with and without Cairn and record all model usage, extra source reads, enrichment calls, elapsed time, review minutes and acceptance quality. Hold repository, task difficulty and model reasonably constant. A proposed cost formula is: baseline task cost − Cairn-assisted task cost − attributable enrichment/infrastructure cost. Do not count the same tokens in both the assisted bill and an extra overhead term.</p>
+<p>Illustration only: if a matched baseline task costs $1.20, the assisted task costs $0.65 including its brief and follow-up reads, and enrichment attributable to that task costs $0.10, net reduction is $0.45, or 37.5%. These numbers are hypothetical inputs, not measured Cairn results or current model prices.</p>
+<h2 id="9-persona-specific-first-week">9. Persona-specific first week</h2>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Persona</th>
+<th>Start here</th>
+<th>Repeated habit</th>
+<th>Success evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Solo developer</td>
+<td>Doctor → Impact → Memory</td>
+<td>Check risky edits; record one durable gotcha</td>
+<td>Fewer repeated mistakes at equal test quality</td>
+</tr>
+<tr>
+<td>New team member</td>
+<td>Map → Specs → Why</td>
+<td>Trace one real change from requirement to code</td>
+<td>Can explain and safely modify an unfamiliar area</td>
+</tr>
+<tr>
+<td>Tech lead / reviewer</td>
+<td>Impact → Specs → Sessions</td>
+<td>Compare proposed scope with evidence and actual diff</td>
+<td>Lower review rework, not just fewer read tokens</td>
+</tr>
+<tr>
+<td>Team admin</td>
+<td>Team setup → project roles → audit</td>
+<td>Validate least privilege, retention and failed syncs</td>
+<td>Unauthorized reads/writes fail; recovery procedure works</td>
+</tr>
+<tr>
+<td>Finance / engineering manager</td>
+<td>Overview + model ledger + task study</td>
+<td>Compare total cost per accepted task</td>
+<td>Net measured cost/time benefit with uncertainty stated</td>
+</tr>
+<tr>
+<td>Claude / coding agent</td>
+<td>Injected brief → context tool → source → tests</td>
+<td>Cite evidence; preserve durable learning</td>
+<td>Useful context is actually consumed; no invented tool calls</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="10-a-sign-off-checklist">10. A sign-off checklist</h2>
+<ul>
+<li>The right project and source version are selected.</li>
+<li>Doctor shows the configured capture/injection path; any manual agent approval is resolved.</li>
+<li>A known symbol and caller can be verified through Map/Impact.</li>
+<li>A requirement links to real code and a meaningful test.</li>
+<li>A session is captured and the next-session preview is current.</li>
+<li>A memory can be retrieved and corrected in a disposable fixture.</li>
+<li>A failed provider or sync produces a visible degraded state.</li>
+<li>Savings are labeled as estimates with scope and baseline; the model ledger is understood.</li>
+<li>Team mode is separately checked for authentication, project access and audit behavior.</li>
+</ul>
+<p>The review exercised existing UI reads and selected local tests. It did not perform these mutation exercises on your real project or certify a team deployment. Use this checklist to produce the missing evidence on a fixture.</p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../METHODOLOGY.html">Method &amp; limits</a><a href="../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/onboarding/CAIRN.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../assets/app.js" defer></script></body></html>

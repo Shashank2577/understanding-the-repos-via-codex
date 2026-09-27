@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A source-grounded field guide to twenty repositories: vision, architecture, overlap, onboarding and evidence."><title>Cairn · Repository atlas</title><link rel="stylesheet" href="../../assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="mast"><a class="brand" href="../../index.html">FIELD GUIDE <span> / CODEX</span></a><nav aria-label="Main navigation"><a href="../../index.html">Start here</a><a href="../../projects.html">Explore 20 projects</a><a href="../../portfolio/SYNTHESIS.html">Portfolio direction</a><a href="../../onboarding/CAIRN.html">Developer &amp; Claude guide</a></nav></header><div class="contextbar"><div class="breadcrumbs"><a href="../../index.html">Start</a><span>/</span><a href="../../projects.html">Projects</a><span>/</span><strong>Cairn</strong><span>/</span><span>Report</span></div><nav aria-label="Project guide"><a href="../../reports/cairn/REPORT.html">Report</a><a href="../../reports/cairn/ONBOARDING.html">How to use</a><a href="../../reports/cairn/EVIDENCE.html">Evidence</a><a href="../../projects.html">← All projects</a></nav></div><main id="main" class="document"><h1>Cairn</h1><details class="toc"><summary>On this page</summary><ol><li><a href="#vision-and-the-problem-it-addresses">Vision and the problem it addresses</a></li><li><a href="#how-it-works">How it works</a></li><li><a href="#how-well-it-addresses-the-problem">How well it addresses the problem</a></li><li><a href="#what-is-missing-or-unproven">What is missing or unproven</a></li><li><a href="#smallest-useful-next-step">Smallest useful next step</a></li><li><a href="#position-in-the-portfolio">Position in the portfolio</a></li><li><a href="#evidence-and-next-reading">Evidence and next reading</a></li></ol></details>
+<p><strong>Recommendation:</strong> Strong developer-product candidate; validate outcomes beyond compression.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Snapshot</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supplied location ID</td>
+<td>cairn</td>
+</tr>
+<tr>
+<td>Product family</td>
+<td>Agent memory</td>
+</tr>
+<tr>
+<td>Implementation stage</td>
+<td>Alpha with live UI</td>
+</tr>
+<tr>
+<td>Review date</td>
+<td>2026-09-26</td>
+</tr>
+<tr>
+<td>Local state</td>
+<td>clean</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="vision-and-the-problem-it-addresses">Vision and the problem it addresses</h2>
+<p>Give coding agents institutional memory: what the code is, what was intended, what changed, what the team learned and what past agents did. One CLI, MCP server and browser UI connect the five layers.</p>
+<p><strong>Who needs it:</strong> Solo developers restarting agent sessions; newcomers learning a repo; tech leads preserving decisions; admins serving team projects.</p>
+<p><strong>The moment it becomes useful:</strong> Claude repeatedly rediscovers the same code, forgets a reverted approach, or cannot explain why a constraint exists. A folder of notes has no link to the changed symbol or task.</p>
+<h2 id="how-it-works">How it works</h2>
+<p><img src="../../assets/cairn-flow.svg" alt="Conceptual workflow for Cairn" /></p>
+<p>This diagram summarizes the inspected design. It is not evidence of a successful end-to-end deployment. For a hands-on journey, use the <a href="ONBOARDING.html">onboarding guide</a>.</p>
+<h2 id="how-well-it-addresses-the-problem">How well it addresses the problem</h2>
+<ul>
+<li>Live local UI was inspected: Overview, Map and its navigation display populated graph, spec, session and memory counts.</li>
+<li>source_cost explicitly estimates source tokens from file bytes; query logging distinguishes delivery surface and briefing cost.</li>
+<li>The architecture includes deterministic context without a model, optional model enrichment, session hooks, MCP and team modes.</li>
+<li>Selected core/surface/agent-memory tests completed after two sandbox-only port failures were rerun successfully.</li>
+</ul>
+<p>These are implementation strengths. Repeated use, customer demand and measured business outcomes remain separate questions.</p>
+<h2 id="what-is-missing-or-unproven">What is missing or unproven</h2>
+<ul>
+<li>Compression is a proxy baseline, not measured avoided reading or invoice savings. Repeated packs can count the same files multiple times.</li>
+<li>The Overview headline switches to MCP totals when present; its file count uses recent rows while token totals cover the grouped history. This can confuse scope.</li>
+<li>Zero drift does not prove semantic correctness or test adequacy. Static edges and inferred co-change relationships have different certainty.</li>
+<li>Hook support differs by agent, and model-backed background processing can consume quota without a foreground question. Team production isolation and retention need deployment validation.</li>
+</ul>
+<h2 id="smallest-useful-next-step">Smallest useful next step</h2>
+<p>Package a 30-minute tutorial with a disposable repo and before/after task benchmark. Make baseline assumptions, model ledger and net cost visible beside the compression ratio.</p>
+<p><strong>Acceptance exercise:</strong> Run doctor; open Impact for a known symbol; check citations and a real caller; inspect the session-start preview; add and retire a harmless convention in a fixture; compare a task checked done with its actual file and tests. Measure total task tokens and elapsed time with and without Cairn.</p>
+<p>This is a proposed validation exercise unless explicitly recorded as executed in <a href="../../VALIDATION.html">VALIDATION</a>.</p>
+<h2 id="position-in-the-portfolio">Position in the portfolio</h2>
+<p>Related work: <a href="../kb/REPORT.html">kb code graph</a>, <a href="../archi-foundry/REPORT.html">Architecture Foundry</a>, <a href="../aisdlc/REPORT.html">Foundry / AI SDLC</a>, <a href="../spreix-brain/REPORT.html">Spreix Brain</a>, <a href="../sovix-ai/REPORT.html">Prompture</a>.</p>
+<p>Read the <a href="../../portfolio/SYNTHESIS.html">overlap and integration decisions</a> before merging features. Shared vocabulary does not guarantee shared IDs, permissions, storage or lifecycle semantics.</p>
+<p class="table-hint">On a small screen, swipe horizontally to read every column.</p><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable comparison"><table>
+<thead>
+<tr>
+<th>Reviewer judgment, 1–5</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Effort to a credible narrow pilot</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Potential breadth and recurrence of the need</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Integration, operational and consequence exposure</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
+<p>These are ordinal planning judgments, not completion percentages or a commercial valuation. Empty/archive projects should be parked rather than treated as active bets.</p>
+<h2 id="evidence-and-next-reading">Evidence and next reading</h2>
+<p><a href="EVIDENCE.html">Source references and snapshot limits</a> · <a href="ONBOARDING.html">Developer / Claude onboarding</a> · <a href="../../portfolio/SYNTHESIS.html">Portfolio synthesis</a></p>
+</main><footer><span>Snapshot · 26 September 2026</span><a href="../../METHODOLOGY.html">Method &amp; limits</a><a href="../../VALIDATION.html">What was tested</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex/blob/main/reports/cairn/REPORT.md">Read Markdown ↗</a><a href="https://github.com/Shashank2577/understanding-the-repos-via-codex">GitHub ↗</a></footer><script src="../../assets/app.js" defer></script></body></html>

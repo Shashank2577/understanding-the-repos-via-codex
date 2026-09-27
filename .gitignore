@@ -1,0 +1,6 @@
+.research/
+.DS_Store
+node_modules/
+.lavish/
+__pycache__/
+*.py[cod]
