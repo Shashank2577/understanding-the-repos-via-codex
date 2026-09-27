@@ -18,3 +18,13 @@ Cairn Overview at observation: 391 estimated tokens sent via one MCP query, 144,
 The preferred chrome-devtools-axi wrapper failed due to a pageId API mismatch. The browser fallback was used for read-only visual inspection. A separate app on port 3000 was observed but not attributed to the requested repositories or used as evidence.
 
 Static-site checks and publication status are appended after generation.
+
+## Field guide site
+
+- Generator rebuilt 20 project report folders and 94 HTML pages.
+- `python3 scripts/validate.py` passed local links, fragments, images, completeness for all 20 report folders, and a publication scan for private absolute paths and common credential patterns.
+- `node --check assets/app.js` passed.
+- Read-only browser review at desktop and 390px mobile width confirmed the vision-led start page, persistent navigation, project breadcrumbs, report/onboarding/evidence tabs and a responsive project report table.
+- The project search was entered for “Cairn” and the directory showed one matching project. The comparison panel loaded Cairn and kb from the local catalog.
+- These are site checks. They do not substitute for the product-specific exercises listed in each onboarding document.
+- GitHub Pages workflow completed successfully; public root URL returned HTTP 200 and the live browser displayed the deployed landing page and 20-project directory.
