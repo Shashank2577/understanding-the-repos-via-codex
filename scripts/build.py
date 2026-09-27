@@ -156,7 +156,7 @@ The [Cairn savings guide](../../onboarding/CAIRN.md) explains the distinction be
 '''
     write(folder/'ONBOARDING.md',onboard)
     # Retain hashed evidence on builds from published source without local checkouts.
-    if LOCAL or not (folder/'EVIDENCE.md').exists():
+    if not (folder/'EVIDENCE.md').exists():
         evidence=[]
         for path,line in p['evidence']:
             local=Path(LOCAL[id]['path'])/path if id in LOCAL else None
